@@ -39,6 +39,7 @@ The results obtained from each encoding approach were as follows:
 ### BERT Model:
 
 - Accuracy: 0.71
+
 | Class (Sentiment) | Precision | Recall | F1-Score | Support |
 |-------------------|---------- |--------|----------|---------|
 | 0 (Negative)      |   0.46    |  0.41  |   0.43   |  285    |
@@ -73,6 +74,7 @@ The results obtained from each encoding approach were as follows:
 ### Word2Vec:
 
 - Accuracy: 0.66 
+
 | Class (Sentiment) | Precision | Recall | F1-Score | Support |
 |-------------------|---------- |--------|----------|---------|
 | 0 (Negative)      |   0.00    |  0.00  |   0.00   |  285    |
