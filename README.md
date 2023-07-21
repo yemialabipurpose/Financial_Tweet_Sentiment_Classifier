@@ -26,11 +26,11 @@ The preprocessed text was then stored in two new columns: 'cleaned_text' and 'pr
 
 To create the sentiment classifier, three different encoding approaches were explored, and three separate models were trained:
 
-1. **Using BERT Model (BERT.ipynb):** The BERT (Bidirectional Encoder Representations from Transformers) tokenizer was used to tokenize the text and convert it into numerical representations. The pre-trained BERT model was utilized to obtain embeddings, and a linear classifier was trained on top of BERT embeddings to classify sentiments.
+1. **Using BERT Model (BERT.ipynb):** The BERT (Bidirectional Encoder Representations from Transformers) tokenizer was used to tokenize the text and convert it into numerical representations. The pre-trained BERT model was utilized to obtain embeddings, and a linear classifier (SVC) was trained on top of BERT embeddings to classify sentiments.
 
-2. **Using TF-IDF Vectorizer (TF-IDF_Vectorizer.ipynb):** The processed text was encoded using the Term Frequency-Inverse Document Frequency (TF-IDF) vectorizer. A linear support vector machine (SVM) classifier was trained on the TF-IDF features to predict sentiment labels.
+2. **Using TF-IDF Vectorizer (TF-IDF_Vectorizer.ipynb):** The processed text was encoded using the Term Frequency-Inverse Document Frequency (TF-IDF) vectorizer. A Multinomial Naive Bayes classifier was trained on the TF-IDF features to predict sentiment labels.
 
-3. **Using Word2Vec (Word2Vec.ipynb):** The processed text was tokenized, and Word2Vec embeddings were obtained for each word in the tweet. The tweet embeddings were created by taking the mean of all word embeddings in the tweet. A linear SVM classifier was trained on these tweet embeddings to perform sentiment classification.
+3. **Using Word2Vec (Word2Vec.ipynb):** The processed text was tokenized, and Word2Vec embeddings were obtained for each word in the tweet. The tweet embeddings were created by taking the mean of all word embeddings in the tweet. A linear classifier (SVC) was trained on these tweet embeddings to perform sentiment classification.
 
 ## Results
 
