@@ -90,8 +90,6 @@ The results obtained from each encoding approach were as follows:
 
 ## Conclusion
 
-## Conclusion
-
 Based on the results obtained from each encoding approach, we can draw the following conclusions:
 
 ### BERT Model:
