@@ -117,4 +117,16 @@ In conclusion, all three encoding approaches show some level of success in predi
 
 Feel free to explore the individual Jupyter Notebooks for more detailed implementation and analysis of each encoding approach.
 
+### Libraries and Packages Used
+
+The following Python libraries and packages were used in this project:
+
+- pandas
+- re
+- nltk
+- transformers (Hugging Face)
+- torch
+- sklearn
+- gensim
+
 *If you have any questions or feedback, please don't hesitate to reach out!*
