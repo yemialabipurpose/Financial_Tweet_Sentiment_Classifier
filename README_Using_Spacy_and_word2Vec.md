@@ -9,8 +9,8 @@ For this project, I obtained the dataset from Hugging Face's datasets library. T
 ## Exploratory Data Analysis
 
 Before diving into preprocessing and training, I conducted some exploratory data analysis (EDA) to understand the dataset's distribution and balance. To visualize the sentiment class distribution, I used the seaborn library to create a count plot of the sentiment labels. The plot showed that the data was imbalanced, with label 2 (Neutral) having approximately three times as many data samples as label 0 (Negative) and label 1 (Positive).
+![Sentiment Class Distribution](https://github.com/yemialabipurpose/Financial_Tweet_Sentiment_Classifier/assets/37623664/6485f2a0-e6ea-4c5f-b49b-0dfed2fa8aca)
 
-![!\[Sentiment Class Distribution\](image.png)]
 
 ## Data Balancing
 
