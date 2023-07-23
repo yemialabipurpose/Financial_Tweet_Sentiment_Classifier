@@ -10,7 +10,7 @@ For this project, I obtained the dataset from Hugging Face's datasets library. T
 
 Before diving into preprocessing and training, I conducted some exploratory data analysis (EDA) to understand the dataset's distribution and balance. To visualize the sentiment class distribution, I used the seaborn library to create a count plot of the sentiment labels. The plot showed that the data was imbalanced, with label 2 (Neutral) having approximately three times as many data samples as label 0 (Negative) and label 1 (Positive).
 
-![!\[Sentiment Class Distribution\](image.png)]
+![Sentiment Class Distribution](https://github.com/yemialabipurpose/Financial_Tweet_Sentiment_Classifier/assets/37623664/6485f2a0-e6ea-4c5f-b49b-0dfed2fa8aca)
 
 ## Data Balancing
 
@@ -44,6 +44,6 @@ For model training, I leveraged the following Python libraries:
 
 1. **Gensim**: I used the `gensim` library to access pre-trained word embeddings. Specifically, I loaded the 'word2vec-google-news-300' model from the Gensim downloader. Word embeddings are dense vector representations of words that capture semantic relationships between words. These embeddings provided valuable features for the sentiment classifier.
 
-2 **Scikit-learn**: The `scikit-learn` library was used for data splitting. I defined the `even_train_test_split()` function to ensure an even distribution of data across the three sentiment classes: negative, positive, and neutral. This function used the scikit-learn library's `train_test_split` function to split the data for each sentiment class separately, while maintaining the balance of samples in the training and testing sets.
+2. **Scikit-learn**: The `scikit-learn` library was used for data splitting. I defined the `even_train_test_split()` function to ensure an even distribution of data across the three sentiment classes: negative, positive, and neutral. This function used the scikit-learn library's `train_test_split` function to split the data for each sentiment class separately, while maintaining the balance of samples in the training and testing sets.
 
 
