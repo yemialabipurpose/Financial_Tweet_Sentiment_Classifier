@@ -38,7 +38,7 @@ To prepare the text data for NLP (Natural Language Processing), I utilized sever
 5. **Stop Words Removal**: The `preprocess()` function was further enhanced to remove common stop words (e.g., "and", "the", "is") using the `spacy` library.
 
 
-# Model Training
+## Model Training
 
 For model training, I leveraged the following Python libraries:
 
@@ -46,4 +46,20 @@ For model training, I leveraged the following Python libraries:
 
 2. **Scikit-learn**: The `scikit-learn` library was used for data splitting. I defined the `even_train_test_split()` function to ensure an even distribution of data across the three sentiment classes: negative, positive, and neutral. This function used the scikit-learn library's `train_test_split` function to split the data for each sentiment class separately, while maintaining the balance of samples in the training and testing sets.
 
+
+## Model Evaluation and Selection
+
+In this section, I confidently tackled the crucial task of model evaluation and selection to identify the most suitable classifier for sentiment analysis on financial tweets. My approach involved the following steps:
+
+### Step 1: Defining Model Libraries and Hyperparameters
+
+I started by importing the necessary model libraries, including classifiers such as Logistic Regression, Support Vector Machine (SVM), Naive Bayes, Decision Tree, Random Forest, K-Nearest Neighbors (KNN), Stochastic Gradient Descent (SGD), XGBoost, AdaBoost, CatBoost, and Gradient Boosting. For each model, I meticulously defined a parameter grid containing various hyperparameters to be tuned during the model evaluation process.
+
+### Step 2: Evaluating Models and Obtaining Accuracy Scores
+
+With my model libraries and hyperparameters ready, I moved on to the crucial evaluation step. I defined a function named `evaluate_models(X_train, y_train, X_test, y_test, models, params)` to evaluate each model's performance with the dataset. This function performed GridSearchCV to optimize hyperparameters and trained each model with the best parameters.
+
+### Step 3: Comparing Model Accuracies
+
+After training each model, I  obtained the accuracy scores for both the training and test datasets. I then compared the accuracy scores of all the models to identify the top-performing classifier.
 
