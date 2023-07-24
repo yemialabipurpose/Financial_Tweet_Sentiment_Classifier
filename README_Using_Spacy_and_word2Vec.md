@@ -51,17 +51,92 @@ For model training, I leveraged the following Python libraries:
 
 ## Model Evaluation and Selection
 
-In this section, I confidently tackled the crucial task of model evaluation and selection to identify the most suitable classifier for sentiment analysis on financial tweets. My approach involved the following steps:
+In this section, I will walk you through the task of model evaluation and selection to identify the most suitable classifier for sentiment analysis on financial tweets. My approach involved the following steps:
 
 ### Step 1: Defining Model Libraries and Hyperparameters
 
-I started by importing the necessary model libraries, including classifiers such as Logistic Regression, Support Vector Machine (SVM), Naive Bayes, Decision Tree, Random Forest, K-Nearest Neighbors (KNN), Stochastic Gradient Descent (SGD), XGBoost, AdaBoost, CatBoost, and Gradient Boosting. For each model, I meticulously defined a parameter grid containing various hyperparameters to be tuned during the model evaluation process.
+I started by importing the necessary model libraries, including classifiers such as Logistic Regression, Support Vector Machine (SVM), Naive Bayes, Decision Tree, Random Forest, K-Nearest Neighbors (KNN), Stochastic Gradient Descent (SGD), XGBoost, AdaBoost, CatBoost, and Gradient Boosting. For each model, I defined a parameter grid containing various hyperparameters to be tuned during the model evaluation process.
 
 ### Step 2: Evaluating Models and Obtaining Accuracy Scores
 
-With my model libraries and hyperparameters ready, I moved on to the crucial evaluation step. I defined a function named `evaluate_models(X_train, y_train, X_test, y_test, models, params)` to evaluate each model's performance with the dataset. This function performed GridSearchCV to optimize hyperparameters and trained each model with the best parameters.
+With my model libraries and hyperparameters ready, I moved on to the evaluation step. I defined a function named `evaluate_models(X_train, y_train, X_test, y_test, models, params)` to evaluate each model's performance with the dataset. This function performed `GridSearchCV` to optimize hyperparameters and trained each model with the best parameters.
 
 ### Step 3: Comparing Model Accuracies
 
-After training each model, I  obtained the accuracy scores for both the training and test datasets. I then compared the accuracy scores of all the models to identify the top-performing classifier.
+After training each model, I obtained the accuracy scores for the different model on the test datasets. The table below showcases the accuracy results for the various models I tried:
 
+| Model                | Accuracy |
+|----------------------|---------:|
+| Logistic Regression  | 0.5062   |
+| SVM                  | 0.5073   |
+| Naive Bayes          | 0.4342   |
+| Decision Tree        | 0.4454   |
+| Random Forest        | 0.5062   |
+| KNN                  | 0.4882   |
+| SGD                  | 0.4882   |
+| XgBoost              | 0.4938   |
+| AdaBoost             | 0.4522   |
+| CatBoost             | 0.5231   |
+| Gradient Boosting    | 0.5028   |
+
+### The Best Model: CatBoostClassifier
+
+After comparing the model accuracies, the `CatBoostClassifier` emerged as the top-performing classifier with an accuracy score of 0.5231 as a result, it was selected. The reports tables below show the performance of the  `CatBoostClassifier model` on the test dataset.  
+
+### Confusion Matrix
+
+The confusion Matrix give insights into how the model performed. It tell you what proportion of the classes has the model classified rightly;
+
+| Actual\Predicted | Negative | Positive | Neutral |
+|------------------|---------:|---------:|--------:|
+| **Negative (0)** |   118    |   87     |   84    |
+| **Positive (1)** |   59     |   164    |   77    |
+| **Neutral (2)**  |   64     |   53     |   183   |
+
+### Classification Report
+
+We obtained the classification report for the CatBoost model and summarized it in a tabular format as follows:
+
+| Class (Sentiment) | Precision | Recall | F1-Score | Support |
+|-------------------|----------:|------:|---------:|--------:|
+| **Negative (0)**  |    0.49   |  0.41 |    0.45  |   289   |
+| **Positive (1)**  |    0.54   |  0.55 |    0.54  |   300   |
+| **Neutral (2)**   |    0.53   |  0.61 |    0.57  |   300   |
+| **Accuracy**      |           |       |   0.52   |   889   |
+| **Macro Avg**     |    0.52   |  0.52 |    0.52  |   889   |
+| **Weighted Avg**  |    0.52   |  0.52 |    0.52  |   889   |
+
+
+**Confusion Matrix Interpretation:**
+- True Negative (TN): 118 instances were correctly classified as Negative.
+- True Positive (TP): 164 instances were correctly classified as Positive.
+- True Neutral (TN): 183 instances were correctly classified as Neutral.
+- False Positive (FP): 87 instances were incorrectly classified as Positive when they were Negative.
+- False Negative (FN): 59 instances were incorrectly classified as Negative when they were Positive, and 64 instances were incorrectly classified as Negative when they were Neutral, and 53 instances were incorrectly classified as Positive when they were Neutral.
+
+## Validation of the Model with Validation Dataset
+
+To validate the model's robustness, I evaluated its performance on the validation dataset. The validation dataset also has a skewed class distribution, but our primary focus was to assess how well the model generalizes to new data. Here are the results:
+
+**Confusion Matrix (Validation)**
+
+| Actual\Predicted | Negative | Positive | Neutral |
+|------------------|---------:|---------:|--------:|
+| **Negative (0)** |   154    |   116    |    77   |
+| **Positive (1)** |   118    |   227    |   130   |
+| **Neutral (2)**  |   301    |   300    |   965   |
+
+**Classification Report (Validation)**
+
+| Class (Sentiment) | Precision | Recall | F1-Score | Support |
+|-------------------|----------:|------:|---------:|--------:|
+| **Negative (0)**  |    0.29   |  0.44 |    0.33  |   347   |
+| **Positive (1)**  |    0.35   |  0.48 |    0.41  |   575   |
+| **Neutral (2)**   |    0.82   |  0.62 |    0.70  |   1566  |
+| **Accuracy**      |           |       |   0.56   |   2388  |
+| **Macro Avg**     |    0.48   |  0.51 |    0.48  |   2388  |
+| **Weighted Avg**  |    0.65   |  0.56 |    0.59  |   2388  |
+
+## Conclusion
+
+In conclusion, the CatBoostClassifier performed well, achieving an accuracy of 52% on the test dataset and 56% on the validation dataset. While there is always room for improvement, these results show that our sentiment classifier model is promising and capable of providing valuable insights into market sentiment from financial tweets.
